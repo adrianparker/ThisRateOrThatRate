@@ -6,7 +6,7 @@
  * @param {number} years term of investment in years
  * @returns annually compounded total return from the given investment parameters, rounded to 2dp
  */
-export function calculateAnnuallyCompundedReturn(principal, ratePerAnnum, years) {
+export function calculateAnnuallyCompoundedReturn(principal, ratePerAnnum, years) {
   const rateDecimal = ratePerAnnum / 100
   return calculateCompoundedReturn(principal, rateDecimal, years)
 }
@@ -20,7 +20,7 @@ export function calculateAnnuallyCompundedReturn(principal, ratePerAnnum, years)
  * @param {number} days term of investment in days
  * @returns daily compounded total return from the given investment parameters, rounded to 2dp
  */
-export function calculateDailyCompundedReturn(principal, ratePerAnnum, days) {
+export function calculateDailyCompoundedReturn(principal, ratePerAnnum, days) {
   const rateDecimalDaily = (ratePerAnnum / 100) / 365
   return calculateCompoundedReturn(principal, rateDecimalDaily, days)
 }

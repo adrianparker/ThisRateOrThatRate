@@ -8,7 +8,7 @@ Work in progress.
 
 ### Local installation
 
-Ensure you have node installed. v20 or better.
+Ensure you have node installed. Project is being developed using v20.
 
 Clone the repo to a local directory. 
 
@@ -24,7 +24,9 @@ npm install
 
 ## Tests
 
+```
 npm test
+```
 
 ## Contributing
 Fire in a pull request by all means. Please adhere to Javascript Standard Style: https://standardjs.com/rules.html

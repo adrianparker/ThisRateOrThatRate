@@ -1,5 +1,5 @@
 import { calculateForwardRateYears, calculateForwardRateDays } from '../forwardRate.js'
-import { calculateAnnuallyCompundedReturn } from '../compoundReturn.js'
+import { calculateAnnuallyCompoundedReturn } from '../compoundReturn.js'
 import { expect } from 'chai'
 import { describe, it } from 'mocha'
 
@@ -93,13 +93,13 @@ describe('Using forward rates with spot rates and terms should result in equal r
     const forwardTerm = longerTerm - shorterTerm
     expect(forwardTerm).to.equal(3)
 
-    const longerReturn = calculateAnnuallyCompundedReturn(principal, longerRate, longerTerm)
+    const longerReturn = calculateAnnuallyCompoundedReturn(principal, longerRate, longerTerm)
     expect(longerReturn).to.equal(13225.19)
 
-    const shorterReturn = calculateAnnuallyCompundedReturn(principal, shorterRate, shorterTerm)
+    const shorterReturn = calculateAnnuallyCompoundedReturn(principal, shorterRate, shorterTerm)
     expect(shorterReturn).to.equal(11257.21)
 
-    const forwardReturn = calculateAnnuallyCompundedReturn(shorterReturn, forwardRate, forwardTerm)
+    const forwardReturn = calculateAnnuallyCompoundedReturn(shorterReturn, forwardRate, forwardTerm)
     expect(longerReturn).to.equal(forwardReturn)
   })
 })
