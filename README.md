@@ -17,7 +17,7 @@ Change into that directory.
 Use npm to install the application.
 
 ```
-git clone https://github.com/adrianparker/TODO
+git clone https://github.com/adrianparker/ThisRateOrThatRate.git
 cd ThisRateOrThatRate
 npm install
 ```
