@@ -20,6 +20,16 @@ import { describe, it } from 'mocha'
  * ... the forward interest rate = 6.0096%.
  */
 describe('Calculating forward rates annually compounding', function () {
+  it('returns a number', function () {
+    const longerRate = 1
+    const longerYears = 2
+    const shorterRate = 1
+    const shorterYears = 1
+
+    const result = calculateForwardRateYears(longerRate, longerYears, shorterRate, shorterYears)
+
+    expect(typeof result).to.equal('number')
+  })
   it('should calculate correct forward rate from 2 years 5% vs 1 year 4%', function () {
     const longerRate = 5
     const longerYears = 2
@@ -27,7 +37,7 @@ describe('Calculating forward rates annually compounding', function () {
     const shorterYears = 1
 
     const result = calculateForwardRateYears(longerRate, longerYears, shorterRate, shorterYears)
-    expect(result).to.equal('6.0096')
+    expect(result).to.equal(6.0096)
   })
   it('should calculate correct forward rate from 3 years 5% vs 1 year 4%', function () {
     const longerRate = 5
@@ -36,7 +46,7 @@ describe('Calculating forward rates annually compounding', function () {
     const shorterTerm = 1
 
     const result = calculateForwardRateYears(longerRate, longerTerm, shorterRate, shorterTerm)
-    expect(result).to.equal('5.5036')
+    expect(result).to.equal(5.5036)
   })
   it('should calculate correct forward rate from 5 years 5.75% vs 2 years 6.1%', function () {
     const longerRate = 5.75
@@ -45,7 +55,7 @@ describe('Calculating forward rates annually compounding', function () {
     const shorterTerm = 2
 
     const result = calculateForwardRateYears(longerRate, longerTerm, shorterRate, shorterTerm)
-    expect(result).to.equal('5.5173')
+    expect(result).to.equal(5.5173)
   })
 })
 
@@ -57,7 +67,7 @@ describe('Calculating forward rates daily compounding', function () {
     const shorterTerm = 365
 
     const result = calculateForwardRateDays(longerRate, longerTerm, shorterRate, shorterTerm)
-    expect(result).to.equal('6.0000')
+    expect(result).to.equal(6)
   })
   it('should calculate correct forward rate from 1095 days 5% vs 365 days 4%', function () {
     const longerRate = 5
@@ -66,7 +76,7 @@ describe('Calculating forward rates daily compounding', function () {
     const shorterTerm = 365
 
     const result = calculateForwardRateDays(longerRate, longerTerm, shorterRate, shorterTerm)
-    expect(result).to.equal('5.5000')
+    expect(result).to.equal(5.5)
   })
   it('should calculate correct forward rate from 10 days 100% vs 5 days 100%', function () {
     const longerRate = 100
@@ -75,7 +85,7 @@ describe('Calculating forward rates daily compounding', function () {
     const shorterTerm = 5
 
     const result = calculateForwardRateDays(longerRate, longerTerm, shorterRate, shorterTerm)
-    expect(result).to.equal('100.0000')
+    expect(result).to.equal(100)
   })
 })
 
@@ -88,7 +98,7 @@ describe('Using forward rates with spot rates and terms should result in equal r
     const shorterTerm = 2
 
     const forwardRate = calculateForwardRateYears(longerRate, longerTerm, shorterRate, shorterTerm)
-    expect(forwardRate).to.equal('5.5173')
+    expect(forwardRate).to.equal(5.5173)
 
     const forwardTerm = longerTerm - shorterTerm
     expect(forwardTerm).to.equal(3)

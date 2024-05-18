@@ -12,11 +12,9 @@ export function calculateForwardRateDays(longerTermSpotRate, longerTermDays, sho
   const daysInYear = 365
   const longerRateDecimalPerDay = (longerTermSpotRate / 100) / daysInYear
   const shorterRateDecimalPerDay = (shorterTermSpotRate / 100) / daysInYear
-
   const forwardRate = calculateForwardRate(longerRateDecimalPerDay, longerTermDays, shorterRateDecimalPerDay, shorterTermDays)
   const forwardRateAsPercentage = forwardRate * daysInYear * 100 // Convert back to percentage per annum
-
-  return forwardRateAsPercentage.toFixed(4)
+  return Math.round(forwardRateAsPercentage * 1e4) / 1e4
 }
 
 /**
@@ -32,11 +30,9 @@ export function calculateForwardRateDays(longerTermSpotRate, longerTermDays, sho
 export function calculateForwardRateYears(longerTermSpotRate, longerTermYears, shorterTermSpotRate, shorterTermYears) {
   const longerSpotRateDecimal = longerTermSpotRate / 100
   const shorterSpotRateDecimal = shorterTermSpotRate / 100
-
   const forwardRate = calculateForwardRate(longerSpotRateDecimal, longerTermYears, shorterSpotRateDecimal, shorterTermYears)
   const forwardRateAsPercentage = forwardRate * 100 // Convert back to percentage
-
-  return forwardRateAsPercentage.toFixed(4)
+  return Math.round(forwardRateAsPercentage * 1e4) / 1e4
 }
 
 /**
@@ -47,7 +43,7 @@ export function calculateForwardRateYears(longerTermSpotRate, longerTermYears, s
  * @param {*} longerTerm The number of periods in the longer term. Investment compounds each period.
  * @param {*} shorterSpotRate The shorter term spot rate as a decimal e.g. 5% is provided as 0.05
  * @param {*} shorterTerm The number of periods in the longer term. Investment compounds each period.
- * @returns the forward rate
+ * @returns {number} the forward rate
  */
 function calculateForwardRate(longerSpotRate, longerTerm, shorterSpotRate, shorterTerm) {
   const numerator = Math.pow((1 + longerSpotRate), longerTerm)
