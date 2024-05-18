@@ -6,7 +6,7 @@
  * @param {number} longerTermDays The length of the longer term in days
  * @param {number} shorterTermSpotRate The shorter term spot rate (percentage per annum)
  * @param {number} shorterTermDays The length of the shorter term in days
- * @returns {number} The forward interest rate (percentage) rounded to 4dp.
+ * @returns {number} The forward interest rate (percentage per annum) rounded to 4dp.
  */
 export function calculateForwardRateDays(longerTermSpotRate, longerTermDays, shorterTermSpotRate, shorterTermDays) {
   const daysInYear = 365
@@ -25,7 +25,7 @@ export function calculateForwardRateDays(longerTermSpotRate, longerTermDays, sho
  * @param {number} longerTermYears The length of the longer term in years, compounding annually
  * @param {number} shorterTermSpotRate The shorter term spot rate (percentage)
  * @param {number} shorterTermYears The length of the shorter term in years, compounding annually
- * @returns {number} The forward interest rate (percentage) rounded to 4dp.
+ * @returns {number} The forward interest rate (percentage per annum) rounded to 4dp.
  */
 export function calculateForwardRateYears(longerTermSpotRate, longerTermYears, shorterTermSpotRate, shorterTermYears) {
   const longerSpotRateDecimal = longerTermSpotRate / 100
@@ -37,13 +37,13 @@ export function calculateForwardRateYears(longerTermSpotRate, longerTermYears, s
 
 /**
  * Calculates a forward rate from two spot rates.
- * See https://en.wikipedia.org/wiki/Forward_rate for the financial formula.
+ * See https://en.wikipedia.org/wiki/Forward_rate for the formula.
  *
  * @param {*} longerSpotRate The longer term spot rate as a decimal e.g. 5% is provided as 0.05
  * @param {*} longerTerm The number of periods in the longer term. Investment compounds each period.
  * @param {*} shorterSpotRate The shorter term spot rate as a decimal e.g. 5% is provided as 0.05
  * @param {*} shorterTerm The number of periods in the longer term. Investment compounds each period.
- * @returns {number} the forward rate
+ * @returns {number} the calculated forward rate
  */
 function calculateForwardRate(longerSpotRate, longerTerm, shorterSpotRate, shorterTerm) {
   const numerator = Math.pow((1 + longerSpotRate), longerTerm)
