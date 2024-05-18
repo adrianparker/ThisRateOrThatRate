@@ -1,6 +1,7 @@
 import { calculateForwardRateDays, calculateForwardRateYears } from './forwardRate.js'
 
-// Example usage
+// Examples of usage of functions in forwardRate.js
+
 const longerTermSpotRate = 5 // 5%
 const longerTermDays = 730 // 2 years
 const shorterTermSpotRate = 4 // 4%
@@ -12,3 +13,5 @@ const longerTermYears = 2 // 2 years
 const shorterTermYears = 1 // 1 year
 
 console.log(`Forward Rate Years: ${calculateForwardRateYears(longerTermSpotRate, longerTermYears, shorterTermSpotRate, shorterTermYears)}%`)
+
+// TODO examples for compoundReturn.js functions needed
