@@ -1,5 +1,5 @@
 import { calculateForwardRateYears, calculateForwardRateDays } from '../forwardRate.js'
-import { calculateAnnuallyCompoundedReturn } from '../compoundReturn.js'
+import { calculateAnnuallyCompoundedReturn, calculateDailyCompoundedReturn } from '../compoundReturn.js'
 import { expect } from 'chai'
 import { describe, it } from 'mocha'
 
@@ -110,6 +110,25 @@ describe('Using forward rates with spot rates and terms should result in equal r
     expect(shorterReturn).to.equal(11257.21)
 
     const forwardReturn = calculateAnnuallyCompoundedReturn(shorterReturn, forwardRate, forwardTerm)
+    expect(longerReturn).to.equal(forwardReturn)
+  })
+  it('$10,000 for 500 days 4.7% should equal 200 days 6% and then 300 days at forward rate', function () {
+    const principal = 10000
+    const longerRate = 4.7
+    const longerTerm = 500
+    const shorterRate = 6
+    const shorterTerm = 200
+
+    const forwardRate = calculateForwardRateDays(longerRate, longerTerm, shorterRate, shorterTerm)
+
+    const forwardTerm = longerTerm - shorterTerm
+    expect(forwardTerm).to.equal(300)
+
+    const longerReturn = calculateDailyCompoundedReturn(principal, longerRate, longerTerm)
+
+    const shorterReturn = calculateDailyCompoundedReturn(principal, shorterRate, shorterTerm)
+
+    const forwardReturn = calculateDailyCompoundedReturn(shorterReturn, forwardRate, forwardTerm)
     expect(longerReturn).to.equal(forwardReturn)
   })
 })
