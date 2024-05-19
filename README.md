@@ -1,8 +1,10 @@
 # This Rate or That Rate?
-Calculates the future implications of a financial decision made today - this rate, or that rate?
+Calculates the future implications of a financial rate decision made today.
+
+Helping you to decide - **this rate, or that rate?**
 
 ## Project status
-Work in progress. 
+Work in progress. Currently just some calculation functions.
 
 ## Installation
 
@@ -22,6 +24,14 @@ cd ThisRateOrThatRate
 npm install
 ```
 
+## Examples
+
+To see example usage:
+
+```
+node examples.js
+```
+
 ## Tests
 
 ```
@@ -29,4 +39,6 @@ npm test
 ```
 
 ## Contributing
-Fire in a pull request by all means. Please adhere to Javascript Standard Style: https://standardjs.com/rules.html
+Fire in a pull request by all means.
+
+Please adhere to Javascript Standard Style: https://standardjs.com/rules.html
