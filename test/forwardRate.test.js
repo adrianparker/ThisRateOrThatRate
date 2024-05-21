@@ -27,7 +27,6 @@ describe('Calculating forward rates annually compounding', function () {
     const shorterYears = 1
 
     const result = calculateForwardRateYears(longerRate, longerYears, shorterRate, shorterYears)
-
     expect(typeof result).to.equal('number')
   })
   it('should calculate correct forward rate from 2 years 5% vs 1 year 4%', function () {
