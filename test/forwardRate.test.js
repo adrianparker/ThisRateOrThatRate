@@ -1,5 +1,11 @@
-import { calculateForwardRateYears, calculateForwardRateDays } from '../forwardRate.js'
-import { calculateAnnuallyCompoundedReturn, calculateDailyCompoundedReturn } from '../compoundReturn.js'
+import {
+  calculateForwardRateYears,
+  calculateForwardRateDays
+} from '../forwardRate.js'
+import {
+  calculateAnnuallyCompoundedReturn,
+  calculateDailyCompoundedReturn
+} from '../compoundReturn.js'
 import { expect } from 'chai'
 import { describe, it } from 'mocha'
 

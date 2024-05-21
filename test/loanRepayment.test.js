@@ -1,4 +1,8 @@
-import { calculateWeeklyRepayment, calculateFortnightlyRepayment, calculateMonthlyRepayment } from '../loanRepayment.js'
+import {
+  calculateWeeklyRepayment,
+  calculateFortnightlyRepayment,
+  calculateMonthlyRepayment
+} from '../loanRepayment.js'
 import { expect } from 'chai'
 import { describe, it } from 'mocha'
 
