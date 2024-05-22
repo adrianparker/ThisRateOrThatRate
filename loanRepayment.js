@@ -1,8 +1,8 @@
 /**
  * Calculates monthly repayment to repay the loan over the given term at the given interest rate.
- * @param {*} principal the amount of the loan that is unpaid
- * @param {*} ratePerAnnnum interest rate per annum as a percentage
- * @param {*} years how many years to repay the loan
+ * @param {number} principal the amount of the loan that is unpaid
+ * @param {number} ratePerAnnnum interest rate per annum as a percentage
+ * @param {number} years how many years to repay the loan
  * @returns total monthly repayment required to repay the loan in full, to 2dp
  */
 export function calculateMonthlyRepayment(principal, ratePerAnnnum, years) {
@@ -12,9 +12,9 @@ export function calculateMonthlyRepayment(principal, ratePerAnnnum, years) {
 
 /**
  * Calculates fortnightly repayment to repay the loan over the given term at the given interest rate.
- * @param {*} principal the amount of the loan that is unpaid
- * @param {*} ratePerAnnnum interest rate per annum as a percentage
- * @param {*} years how many years to repay the loan
+ * @param {number} principal the amount of the loan that is unpaid
+ * @param {number} ratePerAnnnum interest rate per annum as a percentage
+ * @param {number} years how many years to repay the loan
  * @returns total fortnightly repayment required to repay the loan in full, to 2dp
  */
 export function calculateFortnightlyRepayment(principal, ratePerAnnnum, years) {
@@ -24,9 +24,9 @@ export function calculateFortnightlyRepayment(principal, ratePerAnnnum, years) {
 
 /**
  * Calculates weekly repayment to repay the loan over the given term at the given interest rate.
- * @param {*} principal the amount of the loan that is unpaid
- * @param {*} ratePerAnnnum interest rate per annum as a percentage
- * @param {*} years how many years to repay the loan
+ * @param {number} principal the amount of the loan that is unpaid
+ * @param {number} ratePerAnnnum interest rate per annum as a percentage
+ * @param {number} years how many years to repay the loan
  * @returns total weekly repayment required to repay the loan in full, to 2dp
  */
 export function calculateWeeklyRepayment(principal, ratePerAnnnum, years) {
@@ -36,10 +36,13 @@ export function calculateWeeklyRepayment(principal, ratePerAnnnum, years) {
 
 /**
  * Calculates per-period amount (interest and repayment of principal) to repay the loan principal over the given term at the given rate of interest per annum.
- * @param {*} ratePerAnnnum interest rate per annum as a percentage
- * @param {*} paymentsPerAnnum how many repayments per year
- * @param {*} years how many years to repay the loan
- * @param {*} principal the amount of the loan that is unpaid
+ *
+ * See https://en.wikipedia.org/wiki/Mortgage_calculator for formula.
+ *
+ * @param {number} ratePerAnnnum interest rate per annum as a percentage
+ * @param {number} paymentsPerAnnum how many repayments per year
+ * @param {number} years how many years to repay the loan
+ * @param {number} principal the amount of the loan that is unpaid
  * @returns total amount needed for each payment to fully repay the loan
  */
 function calculateRepayment(ratePerAnnnum, paymentsPerAnnum, years, principal) {
