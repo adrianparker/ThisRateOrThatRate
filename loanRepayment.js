@@ -1,4 +1,15 @@
 /**
+ * Calculates annual repayment to repay the loan over the given term at the given interest rate.
+ * @param {number} principal the amount of the loan that is unpaid
+ * @param {number} ratePerAnnnum interest rate per annum as a percentage
+ * @param {number} years how many years to repay the loan
+ * @returns total annual repayment required to repay the loan in full, to 2dp
+ */
+export function calculateAnnualRepayment(principal, ratePerAnnnum, years) {
+  const repayment = calculateRepayment(ratePerAnnnum, 1, years, principal)
+  return Math.round(repayment * 1e2) / 1e2
+}
+/**
  * Calculates monthly repayment to repay the loan over the given term at the given interest rate.
  * @param {number} principal the amount of the loan that is unpaid
  * @param {number} ratePerAnnnum interest rate per annum as a percentage

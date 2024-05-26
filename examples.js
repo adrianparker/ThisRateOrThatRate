@@ -1,6 +1,7 @@
 import { calculateForwardRateDays, calculateForwardRateYears } from './forwardRate.js'
 import { calculateDailyCompoundedReturn, calculateAnnuallyCompoundedReturn } from './compoundReturn.js'
 import {
+  calculateAnnualRepayment,
   calculateMonthlyRepayment,
   calculateFortnightlyRepayment,
   calculateWeeklyRepayment
@@ -43,12 +44,15 @@ console.log('If you invested $%d at a rate of %f% p.a. compounding annually for 
 const loanPrincipal = 10000
 const loanRate = 8
 const loanYears = 5
+const annualLoanPayment = calculateAnnualRepayment(loanPrincipal, loanRate, loanYears)
 const monthlyLoanPayment = calculateMonthlyRepayment(loanPrincipal, loanRate, loanYears)
 const fortnightlyLoanPayment = calculateFortnightlyRepayment(loanPrincipal, loanRate, loanYears)
 const weeklyLoanPayment = calculateWeeklyRepayment(loanPrincipal, loanRate, loanYears)
 
-console.log('\nExample of calculating monthly loan repayment:\n')
-console.log('If you borrow $%d at a rate of %d% for %d years, your monthly loan repayment will be $%f', loanPrincipal, loanRate, loanYears, monthlyLoanPayment)
-console.log('Your fortnightly repayment is $%f and paying weekly would be $%d', fortnightlyLoanPayment, weeklyLoanPayment)
-
-console.log('\n')
+console.log('\nExample of calculating loan repayments for various payment frequencies:\n')
+console.log('If you borrow $%d at a rate of %d% for %d years, your', loanPrincipal, loanRate, loanYears)
+console.log('\tannual repayment will be $%f', annualLoanPayment)
+console.log('\tmonthly repayment will be $%f', monthlyLoanPayment)
+console.log('\tfortnightly repayment will be $%f', fortnightlyLoanPayment)
+console.log('\tweekly repayment will be $%f', weeklyLoanPayment)
+console.log()
