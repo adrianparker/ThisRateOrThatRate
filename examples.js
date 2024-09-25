@@ -42,8 +42,8 @@ console.log('If you invested $%d at a rate of %f% p.a. compounding annually for 
 // examples of usage of functions in loanRepayment.js
 
 const loanPrincipal = 10000
-const loanRate = 8
-const loanYears = 5
+const loanRate = 5
+const loanYears = 10
 const annualLoanPayment = calculateAnnualRepayment(loanPrincipal, loanRate, loanYears)
 const monthlyLoanPayment = calculateMonthlyRepayment(loanPrincipal, loanRate, loanYears)
 const fortnightlyLoanPayment = calculateFortnightlyRepayment(loanPrincipal, loanRate, loanYears)
