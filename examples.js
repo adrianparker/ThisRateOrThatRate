@@ -9,18 +9,20 @@ import {
 
 // Examples of usage of functions in forwardRate.js
 
-const longerTermSpotRate = 5
-const longerTermDays = 730
-const shorterTermSpotRate = 4
-const shorterTermDays = 365
+const longerTermSpotRate = 5.49
+const longerTermDays = 1095
+// const shorterTermSpotRate = 4.49
+// const shorterTermDays = 365
+const shorterTermSpotRate = 5.39 // 5.29
+const shorterTermDays = 730// 548 // 730
 const forwardRateDays = calculateForwardRateDays(longerTermSpotRate, longerTermDays, shorterTermSpotRate, shorterTermDays)
 
 console.log('\nExample of Forward Rate calculation in days:\n')
 console.log('You could invest at %d% for %d days, compounding daily.', longerTermSpotRate, longerTermDays)
 console.log('If you instead invested at %d% for %d days, to earn the same return as the first investment, you\'d need to reinvest the principal and interest from the first investment at %d% for %d days.', shorterTermSpotRate, shorterTermDays, forwardRateDays, longerTermDays - shorterTermDays)
 
-const longerTermYears = 2
-const shorterTermYears = 1
+const longerTermYears = 3
+const shorterTermYears = 2
 const forwardRateYears = calculateForwardRateYears(longerTermSpotRate, longerTermYears, shorterTermSpotRate, shorterTermYears)
 
 console.log('\nExample of Forward Rate calculation in years:\n')
